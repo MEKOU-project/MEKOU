@@ -1,2 +1,0 @@
-# MEKOU
-MEKOUs_HP
