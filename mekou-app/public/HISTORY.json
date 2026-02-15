@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2026-02-15",
+    "category": "Fieldwork",
+    "event": "寮内全域のフィールドワーク完了",
+    "detail": "サンプル数69件。学生の価格感度が1万〜3万円に集中していることを論理的に特定。"
+  },
+  {
+    "date": "2026-02-11",
+    "category": "Development",
+    "event": "MEKOU ENGINE 基本アーキテクチャ設計",
+    "detail": "React + Vite + Frutiger Aero UIの採用。マクロな空間管理のための構造を定義。"
+  },
+  {
+    "date": "2025-12-19",
+    "category": "Corporate",
+    "event": "屋号「MEKOU」の定義",
+    "detail": "自律した経済、血縁の宿命を背負ったインフラプロジェクトとして始動。"
+  }
+]

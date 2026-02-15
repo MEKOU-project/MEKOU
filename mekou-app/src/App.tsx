@@ -1,60 +1,72 @@
-import { useState } from 'react'
-// App.tsx
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
+import PROGRESS from './PROGRESS/PROGRESS'
+import HISTORY from './HISTORY/HISTORY'
+// 他のページも同様に作成・インポート
+
+function Home() {
+  return (
+    <>
+      <section className="neu-inset">
+        <p style={{padding: '0 10px'}}>MEKOUは、自律した経済、自給自足のエネルギー、国民の自立を目指すプロジェクトです</p>
+      </section>
+
+      <div className="grid-container">
+        <Link to="/miero" className="neu-card">
+          <h2>論理：ミエール</h2>
+          <p className="sub-text">法律の可視化</p>
+        </Link>
+
+        <Link to="/engine" className="neu-card">
+          <h2>技術：MEKOU ENGINE</h2>
+          <p className="sub-text">AI・VRによる可視化とシミュレーション</p>
+        </Link>
+
+        <Link to="/progress" className="neu-card">
+          <h2>進捗：PROGRESS</h2>
+          <p className="sub-text">MEKOUプロジェクトの進行状況</p>
+        </Link>
+
+        <Link to="/history" className="neu-card">
+          <h2>履歴：HISTORY</h2>
+          <p className="sub-text">MEKOUプロジェクトのログ</p>
+        </Link>
+      </div>
+
+      <section className="neu-inset" style={{marginTop: '40px'}}>
+        <h2 className="section-title">VICTORY CONDITION</h2>
+        <ul className="condition-list"><li>国民の自立</li></ul>
+        <h2 className="section-title">DEFEAT CONDITION</h2>
+        <ul className="condition-list"><li>MEKOUとしての思想、血縁の根絶</li></ul>
+      </section>
+    </>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <h1>Welcome to <span className="highlight">MEKOU</span></h1>
-        <p className="manifesto">同じ朝は来ない</p>
-      </header>
+    <Router>
+      <div className="App">
+        <header>
+          <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
+            <h1>Welcome to <span className="highlight">MEKOU</span></h1>
+            <p className="manifesto">同じ朝は来ない</p>
+          </Link>
+        </header>
 
-      {/* 思想・マニフェストセクション（凹型で深く刻む） */}
-      <section className="neu-inset">
-        <p>
-          既存のインフラ、法律、そしてPDFに埋もれた悪意。<br />
-          MEKOUは、自律した経済、自給自足のエネルギー、そして透明な論理（ミエール）によって、民衆の手に独立を取り戻す。
-        </p>
-      </section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/progress" element={<PROGRESS />} />
+          <Route path="/history" element={<HISTORY />} />
+          {/* 未実装ページ用のプレースホルダー */}
+          <Route path="*" element={<div className="neu-inset">UNDER CONSTRUCTION</div>} />
+        </Routes>
 
-      {/* 4本柱のグリッド（凸型で押し出す） */}
-      <div>
-        <a href="#miero" className="neu-card">
-          <h2>論理：ミエール</h2>
-          <p style={{fontSize: '0.8rem', marginTop: '8px', color: '#a0a0aa'}}>国家汚染度の可視化</p>
-        </a>
-
-        <a href="#engine" className="neu-card">
-          <h2>技術：MEKOU ENGINE</h2>
-          <p style={{fontSize: '0.8rem', marginTop: '8px', color: '#a0a0aa'}}>次世代3D/VR基盤</p>
-        </a>
-
-        <a href="#delsite" className="neu-card">
-          <h2>経済：DELSITE</h2>
-          <p style={{fontSize: '0.8rem', marginTop: '8px', color: '#a0a0aa'}}>内部通貨と独自の経済圏</p>
-        </a>
-
-        <a href="#commune" className="neu-card">
-          <h2>物理：COMMUNE</h2>
-          <p style={{fontSize: '0.8rem', marginTop: '8px', color: '#a0a0aa'}}>介護施設と中立住居</p>
-        </a>
+        <footer style={{marginTop: '60px', opacity: 0.5, fontSize: '0.8rem'}}>
+          &copy; 2026 MEKOU Project.
+        </footer>
       </div>
-
-      {/* ロードマップ（凹型） */}
-      <section className="neu-inset" style={{marginTop: '40px'}}>
-        <h2 style={{marginBottom: '10px'}}>VICTORY CONDITION</h2>
-        <ul style={{fontSize: '0.9rem', paddingLeft: '20px'}}>
-          <li>情報の民主化とPDF解析ツールの普及</li>
-          <li>MEKOU ENGINEによる独自経済圏のVR実装</li>
-          <li>物理拠点の設立と食料・エネルギーの確保</li>
-        </ul>
-      </section>
-
-      <footer style={{marginTop: '60px', opacity: 0.5, fontSize: '0.8rem'}}>
-        &copy; 2026 MEKOU Project.
-      </footer>
-    </div>
+    </Router>
   )
 }
 

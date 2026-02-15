@@ -1,0 +1,20 @@
+[
+  {
+    "phase": "Phase 0.5",
+    "title": "市場調査・DCON",
+    "tasks": [
+      { "label": "寮内フィールドワーク (n=69)", "isOk": true },
+      { "label": "DCON本選登壇", "isOk": false },
+      { "label": "MEKOU Portal プロトタイプ公開", "isOk": true }
+    ]
+  },
+  {
+    "phase": "Phase 1",
+    "title": "産業への技術売却",
+    "tasks": [
+      { "label": "介護施設への技術売却 (10拠点)", "isOk": false },
+      { "label": "介護施設建設プロジェクト始動", "isOk": false },
+      { "label": "食品ロスの最適化エンジン実装", "isOk": false }
+    ]
+  }
+]
