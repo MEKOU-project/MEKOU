@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import PROGRESS from './PROGRESS/PROGRESS'
 import HISTORY from './HISTORY/HISTORY'
+import TRACE from './Trace/TRACE'
 // 他のページも同様に作成・インポート
 
 function Home() {
@@ -12,8 +13,8 @@ function Home() {
       </section>
 
       <div className="grid-container">
-        <Link to="/miero" className="neu-card">
-          <h2>論理：ミエール</h2>
+        <Link to="/trace" className="neu-card">
+          <h2>論理：トレース</h2>
           <p className="sub-text">法律の可視化</p>
         </Link>
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/progress" element={<PROGRESS />} />
           <Route path="/history" element={<HISTORY />} />
+          <Route path="/trace" element={<TRACE />} />
           {/* 未実装ページ用のプレースホルダー */}
           <Route path="*" element={<div className="neu-inset">UNDER CONSTRUCTION</div>} />
         </Routes>
