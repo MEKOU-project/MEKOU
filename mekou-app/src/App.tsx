@@ -65,7 +65,7 @@ function App() {
     }, []);
 
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <div className="App">
         <header>
           <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>

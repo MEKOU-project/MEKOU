@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { MasterData } from './types';
 
-const STORAGE_ROOT = '/RowData/';
+const STORAGE_ROOT = `${import.meta.env.BASE_URL}RowData/`;
 
 export default function MAP({ onSelect }: { onSelect: (cat: string, id: string) => void }) {
   const [master, setMaster] = useState<MasterData | null>(null);

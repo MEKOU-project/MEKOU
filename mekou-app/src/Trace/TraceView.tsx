@@ -7,7 +7,7 @@ export default function TraceView({ cat, id, onBack }: any) {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`/RowData/${cat}/${id}.json`);
+        const res = await fetch(`${import.meta.env.BASE_URL}RowData/${cat}/${id}.json`);
         const json = await res.json();
         setData(json);
       } catch (e) {

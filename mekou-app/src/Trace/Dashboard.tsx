@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { MasterData } from './types';
 
-const STORAGE_ROOT = '/RowData/';
+const STORAGE_ROOT = `${import.meta.env.BASE_URL}RowData/`;
 const AGENCIES = ["内閣府", "総務省", "法務省", "外務省", "財務省", "文部科学省", "厚生労働省", "農林水産省", "経済産業省", "国土交通省", "環境省", "防衛省", "警察庁"];
 
 export default function Dashboard({ onSelect }: { onSelect: (cat: string, id: string) => void }) {

@@ -1,7 +1,7 @@
 // ListView.tsx
 import { useState, useEffect } from 'react';
 
-const STORAGE_ROOT = '/RowData/';
+const STORAGE_ROOT = `${import.meta.env.BASE_URL}RowData/`;
 
 export default function ListView({ filterCat, onSelect }: any) {
   const [allItems, setAllItems] = useState<any[]>([]);
