@@ -1,0 +1,20 @@
+{
+  "analysis_status": "Llama_Only",
+  "group_id": "covid-19_covid-19-01",
+  "llama_analysis": {
+    "chunks": [
+      {
+        "changes": [
+          "第四条第三項を削る",
+          "第五条第三項を削り、同条の次に次の三条を加える。",
+          "第六条第三項中「保健所を設置する市（以下「保健所設置市」という。）」を「保健所設置市」に改める",
+          "第十四条の次に次の一条を加える"
+        ],
+        "enforcement_date": "本日行時有會杰答要取亨しに有タエルたれ",
+        "penalties": "",
+        "purpose": "新型コロナウイルス感染症対策の実効性を高める"
+      }
+    ],
+    "total_chunks": 1
+  }
+}

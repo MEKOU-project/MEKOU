@@ -1,0 +1,19 @@
+{
+  "analysis_status": "Llama_Only",
+  "group_id": "193",
+  "llama_analysis": {
+    "chunks": [
+      {
+        "changes": [
+          "国民の祝日は天皇の誕生日を祝う日とする。",
+          "宮内庁に上皇職と皇嗣職を置き、天皇の退位等に関する事務を遂行する。",
+          "上皇侍従長と上皇侍従次長を置く。"
+        ],
+        "enforcement_date": "東気日木更し會にちき・レカならま。",
+        "penalties": "",
+        "purpose": "天皇の退位等に関する特例法を設置し、天皇の退位について定める。"
+      }
+    ],
+    "total_chunks": 1
+  }
+}

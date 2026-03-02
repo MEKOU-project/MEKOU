@@ -1,169 +1,309 @@
-/* App.css */
+/* 全体のベース設定 */
 :root {
-  /* ベースは完全な黒。OLEDで映える設計 */
-  --bg-main: #000000;
-  --bg-panel: #0a0a0a;
-  --bg-inset: #050505;
-  
-  /* 警告・アクセントカラー：赤 */
-  --accent-critical: #ff4d4d;
-  /* スキャン・正常動作：シアン（元のFrutigerの名残をここに宿す） */
-  --accent-scan: #00f0ff;
-  
-  --text-main: #e0e0e0;
-  --text-dim: #888888;
-  
-  /* 影の設定を漆黒用に最適化 */
-  --shadow-dark: #000000;
-  --shadow-light: #1a1a1a;
+  --bg-color: #1a1a1a;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --accent-red: #f00;
+  --accent-blue: #0077ff;
+  --neu-shadow-out: 8px 8px 16px #0d0d0d, -8px -8px 16px #272727;
+  --neu-shadow-in: inset 6px 6px 12px #0d0d0d, inset -6px -6px 12px #272727;
 }
 
 body {
-  /* Frutiger Aero風の背景グラデーションを薄く敷く */
-  background: linear-gradient(135deg, #e6eef4 0%, #ffffff 100%);
-  color: var(--text-primary);
-  font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; /* Windows Vista/7っぽさを意識 */
   margin: 0;
-  display: flex;
-  justify-content: center;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* place-items: center を上書き */
+  display: block; 
+  width: 100%;
   min-height: 100vh;
 }
 
-/* 凸パネル：磨かれたプラスチックのような質感 */
-.neu-card {
-  background: var(--bg-color);
-  border-radius: 20px;
-  padding: 24px;
-  margin: 10px 0;
-  box-shadow: 10px 10px 20px var(--dark-shadow),
-              -10px -10px 20px var(--light-shadow);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
+.App {
+  width: 100%;
+  max-width: 800px; /* デスクトップで見やすい幅 */
+  margin: 0 auto; /* 中央寄せ */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ヘッダー・テキスト */
+header {
   text-align: center;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.4); /* エッジに光沢を出す */
-
-}
-
-/* Frutiger Aero的な「光沢」を上部に追加 */
-.neu-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 50%;
-  background: linear-gradient(to bottom, rgba(190, 246, 245, 0.4) 0%, rgba(236, 252, 255, 0) 100%);
-  pointer-events: none;
-}
-
-.neu-card:hover {
-  transform: scale(1.02);
-  box-shadow: 5px 5px 10px var(--dark-shadow),
-              -5px -5px 10px var(--light-shadow);
-}
-
-/* 凹パネル：すりガラスや水面のような沈み込み */
-.neu-inset {
-  background: var(--bg-color);
-  border-radius: 20px;
-  padding: 25px;
-  margin: 20px 0;
-  box-shadow: inset 8px 8px 16px var(--dark-shadow),
-              inset -8px -8px 16px var(--light-shadow);
-  border: 4px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 40px;
 }
 
 .highlight {
-  color: var(--accent-color);
-  text-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
+  color: var(--accent-red);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
+/* グリッドレイアウト（スマホでは1列、PCでは2列） */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
 }
 
-/* aタグがインライン要素なので、ブロック要素にしてサイズを持たせる */
+/* ニューモーフィズム カード（neu-card） */
 .neu-card {
-  display: block;
+  background: var(--bg-color);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--neu-shadow-out);
   text-decoration: none;
   color: inherit;
-  /* 影が重ならないようにマージンを調整 */
-  margin: 0; 
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* テキストカラーの微調整 */
-.neu-card p {
-  color: var(--text-secondary) !important;
+.neu-card:active {
+  box-shadow: var(--neu-shadow-in);
+  transform: scale(0.98);
 }
 
-body {
-  background-color: var(--bg-main);
-  background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
-  color: var(--text-main);
-  font-family: 'Share Tech Mono', 'Courier New', monospace;
-  margin: 0;
-  min-height: 100vh;
-}
-
-/* 凸パネル：削り出しの金属のような質感 */
-.neu-card {
-  background: var(--bg-panel);
-  border-radius: 4px; /* 鋭角にして工学的な硬さを出す */
-  padding: 24px;
-  box-shadow: 8px 8px 16px var(--shadow-dark),
-              -2px -2px 10px var(--shadow-light);
-  border: 1px solid #939393;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.neu-card:hover {
-  border-color: var(--accent-critical);
-  box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
-  transform: translateY(-2px);
-}
-
-/* 凹パネル：情報を吸い込むブラックホールのような沈み込み */
+/* インセットセクション（neu-inset） */
 .neu-inset {
-  background: var(--bg-inset);
+  width: 100%;
+  background: var(--bg-color);
   padding: 15px;
-  box-shadow: inset 6px 6px 12px #747474, 
-              inset -2px -2px 8px #7e7e7e;
-  border-radius: 4px;
-  border: 1px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: var(--neu-shadow-in);
+  margin-top: 20px;
+  box-sizing: border-box;
 }
 
-/* スロットアニメーション */
-@keyframes slot-spin {
-  0% { transform: translateY(0); }
-  20% { transform: translateY(-100%); }
-  40% { transform: translateY(-200%); }
-  60% { transform: translateY(-300%); }
-  80% { transform: translateY(-400%); }
-  100% { transform: translateY(0); }
+/* 勝利/敗北条件のリスト */
+.section-title {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  margin-top: 20px;
+  border-left: 3px solid var(--accent-red);
+  padding-left: 10px;
 }
 
-.slot-container {
-  height: 60px;
-  overflow: hidden;
-  background: rgba(255, 77, 77, 0.05);
-  border-left: 3px solid var(--accent-critical);
+.section-title-blue {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  margin-top: 20px;
+  border-left: 3px solid var(--accent-blue);
+  padding-left: 10px;
 }
 
-.slot-list {
-  animation: slot-spin 15s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+.neu-card .section-title-blue {
+  margin-top: 0; /* カード内の余白を最適化 */
+  margin-bottom: 10px;
+  border-left: 3px solid var(--accent-blue);
+  /* バイオハザード的な「光沢」を少し入れる */
+  text-shadow: 0 0 5px var(--accent-blue);
 }
 
-.slot-item {
-  height: 60px;
+.condition-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* スマホ最適化（メディアクエリ） */
+@media (max-width: 480px) {
+  .App {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .neu-card {
+    padding: 15px;
+  }
+
+  /* テーブルの強制解除（ListView用） */
+  .mekou-table {
+    display: block;
+    width: 100%;
+    min-width: auto !important; /* 500pxを強制的に消す */
+    overflow-x: auto;
+    border: red 1px solid;
+  }
+}
+
+/* ナビゲーション（TraceSystem用） */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: rgba(20, 20, 20, 0.95);
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 15px;
-  color: var(--accent-critical);
-  font-weight: bold;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: background 0.1s;
+  -webkit-tap-highlight-color: transparent; /* タップ時の青い枠を消す */
+}
+
+.clickable-row:active {
+  background-color: rgba(255, 0, 0, 0.2) !important; /* タップした瞬間に赤く光る */
+}
+
+.mekou-table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* テーブル突き抜け防止 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.manifesto-container {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.manifesto {
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  /* 文字が切り替わる時のフェード */
+  transition: opacity 0.5s ease;
+}
+
+@keyframes mekou-breath {
+  0% { 
+    opacity: 0.5; 
+    filter: blur(1px); /* わずかにぼかす */
+    text-shadow: 0 0 0px var(--accent-red);
+  }
+  50% { 
+    opacity: 1; 
+    filter: blur(0px); 
+    text-shadow: 0 0 8px var(--accent-red); /* 輝きを放つ */
+  }
+  100% { 
+    opacity: 0.5; 
+    filter: blur(1px);
+    text-shadow: 0 0 0px var(--accent-red);
+  }
+}
+
+/* 冥光らしい、わずかな明滅 */
+@keyframes flicker {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+.animate-flicker {
+  animation: mekou-breath 3s infinite ease-in-out;
+}
+
+
+/*liquid*/
+.neu-inset {
+  background: rgba(0, 119, 255, 0.05); /* わずかに青い */
+  backdrop-filter: blur(4px); /* 背景を少しぼかす */
+  border: 1px solid rgba(0, 119, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 液体が揺れているような演出 */
+.manifesto-container.neu-inset::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.05), 
+    transparent
+  );
+  animation: wave-move 8s infinite linear;
+}
+
+@keyframes wave-move {
+  0% { mask-position: 0% 50%; }
+  100% { mask-position: 100% 50%; }
+}
+
+
+.trace-view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 画面高さいっぱい */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.trace-header {
+  flex-shrink: 0; /* ヘッダーは縮まない */
+  margin-bottom: 20px;
+}
+
+/* スクロールエリア */
+.analysis-feed {
+  flex: 1; /* 残りのスペースを全て埋める */
+  overflow-y: auto; /* ここでスクロールさせる */
+  padding-right: 10px; /* スクロールバーとの隙間 */
+}
+
+
+/* ホバー時に脈動を開始 */
+header h1:hover .highlight {
+  display: inline-block;
+  /* 激しい動きではなく、水面の揺らぎのようなフィルタ */
+  animation: mekou-float 2s ease-in-out infinite;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+header h1:hover .highlight {
+  /* 触れた瞬間、背後から光が漏れ出す */
+  filter: blur(0.5px) contrast(1.2);
+  text-shadow: 0 0 15px var(--accent-red), 0 0 30px var(--accent-red);
+}
+
+@keyframes mekou-float {
+  0%, 100% {
+    transform: translateY(0) skewX(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-2px) skewX(1deg); /* わずかに浮き上がり、歪む */
+    filter: brightness(1.3);
+  }
+}
+
+
+@keyframes bar-scan {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5; /* 中央付近で一番光る */
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }

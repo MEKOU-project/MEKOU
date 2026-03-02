@@ -1,0 +1,18 @@
+{
+  "latest_update_time": "2026-02-23 17:55:49",
+  "total_categories": 2,
+  "categories": [
+    {
+      "name": "内閣府_提出法案",
+      "path": "内閣府_提出法案/index.json",
+      "last_modified": "2026-02-23 17:55:49",
+      "file_count": 31
+    },
+    {
+      "name": "東京都_議案",
+      "path": "東京都_議案/index.json",
+      "last_modified": "2026-02-23 17:55:49",
+      "file_count": 5
+    }
+  ]
+}

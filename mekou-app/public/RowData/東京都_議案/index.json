@@ -1,0 +1,36 @@
+{
+  "latest_update_time": "2026-02-23 14:14:04",
+  "file_count": 5,
+  "list": [
+    {
+      "id": "sign-language_sign-language",
+      "title": "sign-language_sign-language",
+      "category": "東京都_議案",
+      "time": "2026-02-23 03:04:40"
+    },
+    {
+      "id": "political-ethics_political-ethics",
+      "title": "political-ethics_political-ethics",
+      "category": "東京都_議案",
+      "time": "2026-02-23 03:03:55"
+    },
+    {
+      "id": "information_information",
+      "title": "information_information",
+      "category": "東京都_議案",
+      "time": "2026-02-23 03:03:07"
+    },
+    {
+      "id": "crights_crights",
+      "title": "crights_crights",
+      "category": "東京都_議案",
+      "time": "2026-02-23 03:02:21"
+    },
+    {
+      "id": "covid-19_covid-19-01",
+      "title": "covid-19_covid-19-01",
+      "category": "東京都_議案",
+      "time": "2026-02-23 03:01:48"
+    }
+  ]
+}

@@ -7,18 +7,21 @@ const progressData = [
     phase: "Phase 0.5",
     title: "市場調査・DCON",
     tasks: [
-      { label: "寮内フィールドワーク (n=69)", isOk: true },
-      { label: "予算・需要バンドの特定", isOk: true },
-      { label: "DCON本選登壇・投資家交渉", isOk: false }
+      { label: "MEKOU ENGINEのHP作成", isOk: true },
+      { label: "法律のトレースシステムの開発、プロトタイプ", isOk: true },
+      { label: "音声メモシステム開発", isOk: false},
+      { label: "MEKOU ENGINEの開発が８０％を超える", isOk: false},
+      { label: "資金が2000万に到達", isOk: false }
     ]
   },
   {
     phase: "Phase 1",
-    title: "社会実装・独立圏構築",
+    title: "自立型コミュニティ・社会実証",
     tasks: [
       { label: "介護施設への技術売却・導入", isOk: false },
+      { label: "資金が2000万に到達", isOk: false },
       { label: "自社介護施設の建設・検証", isOk: false },
-      { label: "食品流通最適化（ロス削減）", isOk: false }
+      { label: "食品流通最適化", isOk: false }
     ]
   }
 ];
@@ -44,16 +47,42 @@ function PROGRESS() {
             <h2 style={{margin: '10px 0'}}>{item.title}</h2>
             
             {/* プログレスバー */}
-            <div className="neu-inset" style={{height: '12px', padding: '2px', margin: '10px 0'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', letterSpacing: '0.2em'}}>
+              <span style={{opacity: 0.6}}>{item.phase}</span>
+              {/* パーセント表示をネオンブルーで激しく光らせる */}
+              <span style={{
+                color: 'var(--accent-blue)', 
+                fontWeight: 'bold', 
+                textShadow: '0 0 12px var(--accent-blue), 0 0 20px var(--accent-blue)'
+              }}>
+                {rate}% <span style={{fontSize: '0.6rem', opacity: 0.8}}>STATUS: LOADED</span>
+              </span>
+            </div>
+
+          <div className="neu-inset" style={{height: '20px', padding: '4px', margin: '15px 0', background: '#000'}}>
+            <div style={{
+              width: `${rate}%`,
+              height: '100%',
+              /* 強力なグラデーションとスキャンライン効果 */
+              background: 'linear-gradient(90deg, #0055ff, #00ffff)',
+              borderRadius: '10px',
+              boxShadow: '0 0 20px var(--accent-blue)',
+              transition: 'width 2s cubic-bezier(0.19, 1, 0.22, 1)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              {/* バーの中に流れる光の筋を追加 */}
               <div style={{
-                width: `${rate}%`,
+                position: 'absolute',
+                top: 0,
+                left: '-100%',
+                width: '100%',
                 height: '100%',
-                background: 'var(--accent-color)',
-                borderRadius: '10px',
-                boxShadow: '0 0 10px rgba(0, 168, 255, 0.5)',
-                transition: 'width 0.8s ease-out'
+                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                animation: 'bar-scan 2s infinite'
               }}></div>
             </div>
+          </div>
 
             {/* タップで展開される詳細 */}
             {openIdx === idx && (

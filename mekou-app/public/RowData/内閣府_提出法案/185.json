@@ -1,0 +1,18 @@
+{
+  "analysis_status": "Llama_Only",
+  "group_id": "185",
+  "llama_analysis": {
+    "chunks": [
+      {
+        "changes": [
+          "",
+          "自衛隊の権限等"
+        ],
+        "enforcement_date": "",
+        "penalties": "五年以下の懲役",
+        "purpose": ""
+      }
+    ],
+    "total_chunks": 1
+  }
+}
