@@ -88,7 +88,7 @@ export default function TraceView({ cat, id, onBack }: any) {
             </button>
             
             <a 
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`【MEKOU_LOG】法案ID:${id} の論理の歪みを検知。 #MEKOU #思考の再起動`)}&url=${encodeURIComponent(window.location.href)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`【MEKOU_LOG】法案ID:${id} の論理の歪みを検知。 #MEKOU #構造可視化 #実験`)}&url=${encodeURIComponent(window.location.href)}`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="neu-card"
